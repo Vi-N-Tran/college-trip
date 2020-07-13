@@ -10,6 +10,7 @@ class SearchResult extends Component {
     return (
       <div>
         <p>Search reults 1</p>
+        <p>more info</p>
       </div>
     );
   }

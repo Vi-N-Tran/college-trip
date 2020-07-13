@@ -5,7 +5,7 @@ import SearchResults from './SearchResults/SearchResults.js';
 class LandingPage extends Component {
   constructor(props) {
     super(props);
-    this.state = { };
+    this.state = { search:" " };
   }
 
   render() {
