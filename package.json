@@ -1,0 +1,8 @@
+{
+  "name": "college-trip",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Vi-N-Tran/college-trip.git",
+  "author": "Vi Tran <Vi.n.tran.23@dartmouth.edu>",
+  "license": "MIT"
+}
