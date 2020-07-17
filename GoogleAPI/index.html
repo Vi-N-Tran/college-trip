@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>College Planner Map</title>
+    <style>
+      #map {
+        height: 400px;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <h1>College Planner Map</h1>
+    <div id="map"></div>
+    <script>
+      function initMap() {
+        // map option settings
+        var options = {
+          zoom: 10,
+          center: { lat: 34.0522, lng: -118.2437 },
+        };
+
+        // creating new map
+        var map = new google.maps.Map(document.getElementById("map"), options);
+
+        // hardcoding markers (for your reference)
+        /*
+        // UCLA marker
+        var marker = new google.maps.Marker({
+          position: { lat: 34.0689, lng: -118.4452 },
+          map: map, // adding this to our map
+        });
+
+        // pop up info window on click - we can put our yelp API and stuff here(?)
+        var infoWindow = new google.maps.InfoWindow({
+          content: "<h1>UCLA</h1>",
+        });
+        marker.addListener("click", function () {
+          infoWindow.open(map, marker);
+        });
+        */
+
+        // array of markers
+        var markers = [
+          {
+            // UCLA
+            coordinates: { lat: 34.0689, lng: -118.4452 },
+            content: "<h1>UCLA</h1>",
+          },
+          {
+            // USC
+            coordinates: { lat: 34.0224, lng: -118.2851 },
+            content: "<h1>USC</h1>",
+          },
+          {
+            // CalTech
+            coordinates: { lat: 34.1377, lng: -118.1253 },
+            content: "<h1>CalTech</h1>",
+          },
+        ];
+
+        // loop through markers to mark each one
+        for (var i = 0; i < markers.length; i++) {
+          addMarker(markers[i]);
+        }
+
+        // marker adding function
+        function addMarker(info) {
+          var marker = new google.maps.Marker({
+            position: info.coordinates,
+            map: map, // adding this to our map
+          });
+
+          // check content
+          if (info.content) {
+            // pop up info window on click - we can put our yelp API and stuff here(?)
+            var infoWindow = new google.maps.InfoWindow({
+              content: info.content,
+            });
+            marker.addListener("click", function () {
+              infoWindow.open(map, marker);
+            });
+          }
+        }
+      }
+    </script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGVP_uJPicztOy1Gm2BYbCA5HZTdcFels&callback=initMap&libraries=&v=weekly"
+      defer
+    ></script>
+  </body>
+</html>
